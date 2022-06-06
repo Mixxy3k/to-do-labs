@@ -16,11 +16,11 @@ export default function Home() {
           Sign in with Google and create your own list 🔥<br />
         </div>
         <div>
-          <h2>Don't memories everything 🧠 Have fun! 🎉</h2>
+          <h2>Don&apos;t memories everything 🧠 Have fun! 🎉</h2>
         </div>
       </div>
       <div className='centerIMG'>
-        <Image src="/mainIMG.png" width={457} height={115}/>
+        <Image src="/mainIMG.png" width={457} height={115} alt="Funny image"/>
       </div>
     </main>
 )

@@ -57,7 +57,11 @@ function TaskList({}) {
         </a>
         <CreateTaskForm setUpdate={setUpdate}/>
       </div>
-      {tasks.map(task => <TaskItem task={JSON.parse(task)} />)}
+      {tasks.map(task => (
+        <div key="task.id">
+          <TaskItem task={JSON.parse(task)} admin={true}/>
+        </div>
+      ))}
     </div>
   )
 }
