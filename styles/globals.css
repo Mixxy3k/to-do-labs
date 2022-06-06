@@ -91,6 +91,10 @@ code {
     border-bottom: 1px solid var(--color-gray);
     z-index: 99;
   }
+
+  .hideOnMobile {
+    display: none;
+  }
 }
 
 .navbar ul {
@@ -112,7 +116,6 @@ code {
 
 .navbar li {
   border-radius: 50%;
-  
 }
 
 /* Buttons */

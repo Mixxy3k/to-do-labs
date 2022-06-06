@@ -22,7 +22,7 @@ export default function Navbar({ }) {
       {username && (
         <>
           <li className='push-left'>
-            <Link href={`/admin`}>
+            <Link href={`/admin`} className="hideOnMobile">
               <button className='btn-blue'>Create List</button>
             </Link>
           </li>
