@@ -77,6 +77,22 @@ code {
   z-index: 99;
 }
 
+/* Navbar mobile */
+@media only screen and (max-width: 600px) {
+  .navbar {
+    height: 70px;
+    width: 100%;
+    background: var(--color-nav);
+    color: var(--colors-text);
+    position: fixed;
+    top: 0;
+    padding: 0 0.8em;
+    font-weight: bold;
+    border-bottom: 1px solid var(--color-gray);
+    z-index: 99;
+  }
+}
+
 .navbar ul {
   list-style-type: none;
   margin: 0;
