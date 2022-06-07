@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 export default function CreateTaskModal({onClose, onSubmit}) {
-  const [title, setTitle] = useState('Title');
-  const [content, setContent] = useState('Example content');
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
   const [priority, setPriority] = useState(1);
 
   const onChangeTitle = (e) => {

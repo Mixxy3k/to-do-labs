@@ -3,6 +3,7 @@ import { signInWithPopup, signOut } from "firebase/auth"
 import { doc, getDoc, writeBatch } from "firebase/firestore"
 import { UserContext } from "../lib/context"
 import { useCallback, useContext, useEffect, useState } from "react"
+import SignOutButton from "../components/SignOutButton"
 import Loader from "../components/Loader"
 import debounce from "lodash.debounce"
 
@@ -26,16 +27,6 @@ function SignInButton() {
       <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="30px"/>
       Sign in with Google
     </button>
-  )
-}
-
-function SignOutButton() {
-  const _signOut = async () => {
-    await signOut(auth)
-  };
-
-  return (
-    <button onClick={_signOut}>Sign Out</button>
   )
 }
 

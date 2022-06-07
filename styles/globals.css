@@ -299,6 +299,13 @@ input[type="file"] {
   text-align: center;
 }
 
+.pageFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+}
+
 .hidden { display:  none; }
 
 

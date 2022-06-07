@@ -45,11 +45,15 @@ function CreateTask() {
 
     await setDoc(taskRef, taskList);
     toast.success('Task created!');
+    router.push(`/${username}/${kebabCase(title)}`);
   }
 
+  const onClose = () => {
+    router.push(`/${username}`);
+  }
   return (
     <main>
-      <CreateListModal onSubmit={onSubmit} />
+      <CreateListModal onClose={onClose} onSubmit={onSubmit} />
     </main>
   );
 }
