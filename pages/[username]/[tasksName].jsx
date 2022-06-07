@@ -3,7 +3,7 @@ import Link from 'next/dist/client/link';
 import CreateTaskModal from '../../components/CreateTaskModal';
 import { getUserWithUsername, firestore } from '../../lib/firebase';
 import { useRouter } from 'next/router';
-import { collection, getDocs, orderBy, query as firebaseQuery, doc, getDoc, setDoc, deleteDoc, updateDoc, increment } from "firebase/firestore";
+import { collection, getDocs, orderBy, query as firebaseQuery, doc, getDoc, setDoc, deleteDoc, updateDoc, increment, onSnapshot } from "firebase/firestore";
 import { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import kebabCase from 'lodash.kebabcase';
@@ -25,6 +25,7 @@ function TaskList({}) {
   const [update, setUpdate] = useState(true);
   useEffect(() => {
     async function getTasks(taskName, username) {
+      let unsubscribe
       const userDoc = await getUserWithUsername(username);
     
       const q = firebaseQuery(collection(firestore, `users/${userDoc.id}/task-lists/${taskName}/tasks`),
@@ -58,7 +59,7 @@ function TaskList({}) {
         <CreateTaskForm setUpdate={setUpdate}/>
       </div>
       {tasks.map(task => (
-        <div key="task.id">
+        <div key={task.id}>
           <TaskItem task={JSON.parse(task)} admin={true}/>
         </div>
       ))}
@@ -137,6 +138,8 @@ function CreateTaskForm({setUpdate}) {
     tasksSnapshot.forEach(doc => {
       deleteDoc(doc.ref);
     });
+    toast.success('Task list deleted!');
+    router.push(`/${username}`);
   }
   return (
     <>    

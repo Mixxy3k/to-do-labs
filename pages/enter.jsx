@@ -6,6 +6,7 @@ import { useCallback, useContext, useEffect, useState } from "react"
 import SignOutButton from "../components/SignOutButton"
 import Loader from "../components/Loader"
 import debounce from "lodash.debounce"
+import Image from "next/image"
 
 export default function EnterPage({props}) {
   const {user, username} = useContext(UserContext)
@@ -24,7 +25,7 @@ function SignInButton() {
 
   return (
     <button onClick={signInWithGoogle} className="btn-google">
-      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="30px"/>
+      <Image src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="30px" alt=""/>
       Sign in with Google
     </button>
   )
@@ -67,12 +68,8 @@ function UsernameForm() {
       setIsValid(false);
     }
   };
-
-  useEffect(() => {
-    checkUsername(formValue);
-  }, [formValue]);
   
-  const checkUsername = useCallback(debounce(async (username) => {
+  const checkUsername = useCallback( () => debounce(async (username) => {
     if (username.length >= 3 ) {
       const userRef = doc(firestore, `users/${username}`)
       const docSnapshot = await getDoc(userRef)
@@ -81,6 +78,10 @@ function UsernameForm() {
       setLoading(false)
     }
   }, 500), []);
+
+  useEffect(() => {
+    checkUsername(formValue);
+  }, [formValue]);
 
   return (
     <section>
