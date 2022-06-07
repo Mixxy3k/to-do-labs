@@ -15,6 +15,7 @@ export async function getServerSideProps( {query} ) {
   if (userDoc) {
     user = userDoc.data();
     const q = firebaseQuery(collection(firestore, `users/${userDoc.id}/task-lists`),
+                            orderBy("priority", "desc"),
                             orderBy("createdAt", "desc"));
 
 

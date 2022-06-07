@@ -3,7 +3,7 @@ import Link from 'next/dist/client/link';
 import CreateTaskModal from '../../components/CreateTaskModal';
 import { getUserWithUsername, firestore } from '../../lib/firebase';
 import { useRouter } from 'next/router';
-import { collection, getDocs, orderBy, query as firebaseQuery, doc, getDoc, setDoc, deleteDoc } from "firebase/firestore";
+import { collection, getDocs, orderBy, query as firebaseQuery, doc, getDoc, setDoc, deleteDoc, updateDoc, increment } from "firebase/firestore";
 import { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import kebabCase from 'lodash.kebabcase';
@@ -117,6 +117,10 @@ function CreateTaskForm({setUpdate}) {
     }
 
     await setDoc(taskRef, task);
+
+    //update task amount
+    const taskListRef = doc(firestore, `users/${userDoc.id}/task-lists/${tasksName}`);
+    updateDoc(taskListRef, {amount: increment(1)});
     toast.success('Task created!');
     setShow(false);
     setUpdate(true);

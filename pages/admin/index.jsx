@@ -3,8 +3,7 @@ import kebabCase from "lodash.kebabcase";
 import CreateListModal from "../../components/CreateListModal";
 import { useRouter } from 'next/router';
 import { getUserWithUsername, firestore } from "../../lib/firebase";
-import { serverTimestamp } from "firebase/firestore";
-import { doc, setDoc } from "firebase/firestore";
+import { serverTimestamp, doc, setDoc } from "firebase/firestore";
 import { UserContext } from "../../lib/context";
 import { useContext } from "react";
 import toast from 'react-hot-toast';
@@ -44,7 +43,7 @@ function CreateTask() {
     console.log(taskList);
 
     await setDoc(taskRef, taskList);
-    toast.success('Task created!');
+    toast.success('Task List created!');
     router.push(`/${username}/${kebabCase(title)}`);
   }
 
