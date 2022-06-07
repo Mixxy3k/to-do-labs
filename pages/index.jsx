@@ -16,7 +16,7 @@ export default function Home() {
           Sign in with Google and create your own list 🔥<br />
         </div>
         <div>
-          <h2>Don&apos;t memories everything 🧠 Have fun! 🎉</h2>
+          <h2>Don&apos;t memorise everything 🧠 Have fun! 🎉</h2>
         </div>
       </div>
       <div className='centerIMG'>
