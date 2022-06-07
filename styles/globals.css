@@ -308,7 +308,10 @@ input[type="file"] {
 
 .hidden { display:  none; }
 
-
+.bin-emoji {
+  font-size: 1.5em;
+  color: var(--color-red);
+}
 /* Modal */
 
 .modal-background {

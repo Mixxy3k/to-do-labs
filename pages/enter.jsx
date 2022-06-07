@@ -25,7 +25,7 @@ function SignInButton() {
 
   return (
     <button onClick={signInWithGoogle} className="btn-google">
-      <Image src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="30px" alt=""/>
+      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="30px" alt=""/>
       Sign in with Google
     </button>
   )

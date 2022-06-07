@@ -12,12 +12,13 @@ function PostItem( {taskList, admin = false} ) {
           <strong> By @{taskList.username}</strong>
         </a>
       </Link>
-
-      <Link href={`/${taskList.username}/${taskList.slug}`}>
-        <h2>
-          <a>{taskList.title}</a>
-        </h2>
-      </Link>
+      <div>
+        <Link href={`/${taskList.username}/${taskList.slug}`}>
+          <h2>
+            <a>{taskList.title}</a>
+          </h2>
+        </Link>
+      </div>
 
       <footer>
         <span>

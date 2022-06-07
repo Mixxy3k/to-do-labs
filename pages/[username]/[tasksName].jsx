@@ -75,9 +75,11 @@ function TaskItem({ task, admin = false }) {
           <strong> By @{task.username}</strong>
         </a>
       </Link>
-      <h2>
-        <a>{task.name}</a>
-      </h2>
+      <span>
+        <h2>
+          <a>{task.name}</a>
+        </h2>
+      </span>
       <footer>
         <span>
           {task.content}
